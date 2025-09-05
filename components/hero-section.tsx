@@ -32,7 +32,8 @@ export function HeroSection() {
               Passionate about creating scalable applications and delivering exceptional user experiences. 
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            {/* Desktop CTA: visible only on lg+, hidden on mobile/tablet */}
+            <div className="hidden lg:flex gap-4 justify-center lg:justify-start">
               <Button size="lg" variant="secondary" onClick={scrollToProjects} className="font-semibold">
                 View My Work
                 <ArrowDown className="ml-2 h-4 w-4" />
@@ -51,8 +52,8 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative">
+          <div className="md:order-1 lg:order-2 flex flex-col items-center justify-center lg:justify-end">
+            <div className="relative mb-6 sm:mb-0">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-cyan-400 shadow-2xl">
                 <Image
                   src="/images/vikas-profile.jpg"
@@ -64,8 +65,26 @@ export function HeroSection() {
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-cyan-400 rounded-full flex items-center justify-center">
-                <span className="text-2xl text-black">👋</span>
+                <span className="text-4xl text-black">👋</span>
               </div>
+            </div>
+            {/* Mobile/Tablet CTA: shown below image on < lg */}
+            <div className="mt-6 md:mt-10 w-full flex lg:hidden flex-col gap-4 justify-center">
+              <Button size="lg" variant="secondary" onClick={scrollToProjects} className="font-semibold w-full md:w-64 self-center">
+                View My Work
+                <ArrowDown className="ml-2 h-4 w-4" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-transparent border-white text-white hover:bg-white hover:text-slate-900 font-semibold w-full md:w-64 self-center"
+                asChild
+              >
+                <a href="https://drive.google.com/file/d/1C55qPqI3vZmyrQAg7swlb4gu-NaGZFPq/view?usp=sharing" download>
+                  <Download className="mr-2 h-4 w-4" />
+                  Download Resume
+                </a>
+              </Button>
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@
 @import "tw-animate-css";
 
 /* Dark mode variant */
-/* Tailwind v3 uses the `dark` variant by class; custom variant not needed */
+@custom-variant dark (&:is(.dark *));
 
 /* ==============================
    Root Theme Variables
@@ -74,8 +74,9 @@
    Base Layer Overrides
    ============================== */
 @layer base {
-  /* Reset custom utilities that may not exist in v3 */
-  * {}
+  * {
+    @apply border-border outline-ring/50;
+  }
   body {
     @apply bg-background text-foreground font-sans;
   }
