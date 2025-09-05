@@ -25,12 +25,14 @@ export function ExperienceSection() {
       institution: "Vellore Institute of Technology, Bhopal",
       duration: "2023 - 2025",
       status: "Completed",
+      cgpa: "7.40",
     },
     {
       degree: "Bachelors of Computer Application",
       institution: "Presidency College Hebbal, Bangalore",
       duration: "2020 - 2023",
       status: "Completed",
+      cgpa: "8.12",
     },
   ]
 
@@ -102,14 +104,17 @@ export function ExperienceSection() {
               Education
             </h3>
 
-            <div className="flex flex-col gap-24">
+            <div className="flex flex-col gap-[60px]">
               {education.map((edu, index) => (
                 <Card key={index} className="border-border hover:shadow-lg transition-shadow">
                   <CardContent className="p-6">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
                       <div>
                         <h4 className="font-heading font-semibold text-lg text-primary mb-1">{edu.degree}</h4>
-                        <p className="font-medium text-card-foreground mb-2">{edu.institution}</p>
+                        <p className="font-medium text-card-foreground mb-1">{edu.institution}</p>
+                        {"cgpa" in edu && (
+                          <p className="text-sm text-muted-foreground">CGPA: {edu.cgpa}</p>
+                        )}
                       </div>
                       <div className="text-sm text-muted-foreground">
                         <div className="flex items-center mb-1">
