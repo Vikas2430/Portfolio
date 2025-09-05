@@ -1,7 +1,5 @@
-/* Load Tailwind layers first */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Load Tailwind v4 */
+@import "tailwindcss";
 
 /* Animation plugin */
 @import "tw-animate-css";
